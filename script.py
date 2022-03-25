@@ -10,11 +10,21 @@ class L2:
                     break 
                 elif user_input == '/add':
                     self.add()
-                user_input = int(user_input)
+                
                 
             
             except:
                 pass
+                
+
+    def add(self):
+        user_input = int(input(': '))
+        for i in range(user_input):
+            transaction = {'chain': self.L2}
+            self.L1.add_block(transaction)
+        
+
+
             
     
             
