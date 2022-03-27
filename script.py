@@ -43,6 +43,9 @@ class L2:
                 user_idx = user_idx.strip('[')
                 user_idx = user_idx.strip(']')
                 user_idx = int(user_idx)
+                if user_idx > len(self.L1.chain):
+                    print("Index too large")
+                    return
                 for block_idx in range(len(self.L1.chain)):
                     if block_idx == user_idx:
                         transaction = {'Val': val_to_add}
@@ -64,7 +67,9 @@ class L2:
                 user_idx = user_idx.strip(']')
                 user_idx = user_idx.strip('[')
                 user_idx = int(user_idx)
-
+                if user_idx > len(self.L1.chain):
+                    print("Index too large")
+                    return
                 for block_idx in range(len(self.L1.chain)):
                     if block_idx == user_idx:
                         des_network = self.L1.chain[block_idx].transactions['chain']
