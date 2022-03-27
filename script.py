@@ -4,22 +4,18 @@ class L2:
     L2_chain = Blockchain()
     def __init__(self):
         while True:
-            try:
-                user_input = str(input(': '))
-                user_input = user_input.strip(' ')
-                if user_input == '/quit':
-                    break 
-                elif user_input == '/add':
-                    self.add()
-                elif '/add_val' in user_input:              #add_val [block-idx] 
-                    lst = user_input.split(' ')
-                    self.add_val(lst)
-                    
-                   
             
-            except:
-                pass
-                
+            user_input = str(input(': '))
+            user_input = user_input.strip(' ')
+            if user_input == '/quit':
+                break 
+            elif user_input == '/add':
+                self.add()
+            elif '/add_val' in user_input:              #add_val [block-idx] 
+                lst = user_input.split(' ')
+                self.add_val(lst)
+                    
+
 
     def add(self):
         user_input = int(input('Length of chain: '))
@@ -46,7 +42,7 @@ class L2:
                 for block_idx in range(len(self.L1.chain)):
                     if block_idx == user_idx:
                         transaction = {'Val': val_to_add}
-                        network = self.L1.chain[block_idx]
+                        network = self.L1.chain[block_idx].transactions['chain']
                         network.add_block(transaction)
             else:
                 continue 
