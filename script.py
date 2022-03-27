@@ -14,6 +14,10 @@ class L2:
             elif '/add_val' in user_input:              #add_val [block-idx] 
                 lst = user_input.split(' ')
                 self.add_val(lst)
+            elif '/view' in user_input:
+                lst = user_input.split(' ')
+                self.print_network(lst)
+
                     
 
 
@@ -47,6 +51,27 @@ class L2:
             else:
                 continue 
         return True
+
+    def print_network(self, lst):
+        if len(lst) == 1:
+            print("There are not enough parameters")
+            return 
+        for network_idx in range(len(lst)):
+            if network_idx == 0:
+                pass 
+            elif network_idx == 1:
+                user_idx = lst[network_idx].strip(' ')
+                user_idx = user_idx.strip(']')
+                user_idx = user_idx.strip('[')
+                user_idx = int(user_idx)
+
+                for block_idx in range(len(self.L1.chain)):
+                    if block_idx == user_idx:
+                        des_network = self.L1.chain[block_idx].transactions['chain']
+                        des_network.print_blocks()
+                    else:
+                        continue
+            
                         
                     
                     
