@@ -17,6 +17,8 @@ class L2:
             elif '/view' in user_input:
                 lst = user_input.split(' ')
                 self.print_network(lst)
+            else:
+                print("Incorrect Command")
 
                     
 
